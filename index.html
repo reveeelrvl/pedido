@@ -258,7 +258,7 @@
           interval: 200,
         });
         
-        const dataInicio = new Date("2024-02-23T15:08:00"); // Altere aqui se quiser
+        const dataInicio = new Date("2024-02-23T15:08:00");
         const contador = document.getElementById("contador");
     
         function atualizarContador() {
@@ -309,41 +309,12 @@
           
             setInterval(gerarCoracao, 300); // Gera um coração a cada 300ms
           </script>
-          
-          <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-<script>
-const firebaseConfig = {
-    apiKey: "AIzaSyBVieSzGrK8JHVPzL-L7wOC7vDoO4luU9Y",
-    authDomain: "pedido-namor0.firebaseapp.com",
-    databaseURL: "https://pedido-namor0-default-rtdb.firebaseio.com",
-    projectId: "pedido-namor0",
-    storageBucket: "pedido-namor0.firebasestorage.app",
-    messagingSenderId: "332710670127",
-    appId: "1:332710670127:web:b56554c97be168b94b3bda",
-    measurementId: "G-55S7Z6W6GH"
-  };
-  firebase.initializeApp(firebaseConfig);
-</script>
 
 <!-- Contador após clicar em SIM -->
   <script>
   function respostaSim() {
-    const ref = firebase.database().ref("pedido/simClick");
-
-    // Verifica se já existe a data no Firebase
-    ref.once("value").then((snapshot) => {
-      const dataExistente = snapshot.val();
-      if (dataExistente) {
-        mostrarTelaAmor(new Date(dataExistente));
-      } else {
-        const agora = new Date().toISOString();
-        ref.set(agora).then(() => {
-          mostrarTelaAmor(new Date(agora));
-        });
-      }
-    });
+  const dataSim = new Date("2025-06-07T16:36:38.134Z");
+  mostrarTelaAmor(dataSim);
   }
 
   function mostrarTelaAmor(dataSim) {
